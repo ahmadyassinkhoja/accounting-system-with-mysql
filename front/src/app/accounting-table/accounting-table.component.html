@@ -1,0 +1,59 @@
+
+
+<button (click)="addRecord()" class="btn-primary"> Add Record </button>
+
+<button (click)="editToggle()" class="btn-primary"> Edit Mode Toggle </button>
+
+<table *ngIf="!editMode" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Account Name</th>
+      <th scope="col">Debit</th>
+      <th scope="col">Credit</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  <ng-container *ngFor="let account of accounts" class="position: relative;">
+    <button (click)="deleteRecord(account)" class="btn-danger btn-md" style="position: absolute; right:0; cursor: pointer;">X</button>
+      <tr>
+          <th scope="row">{{account.name}}</th>
+          <td>{{account.debit}} </td>
+          <td>{{account.credit}}</td>
+      </tr>
+  </ng-container>
+
+   <tr>
+    <th scope="row">Total</th>
+    <td> {{ debitSum }} </td>
+    <td> {{ creditSum }} </td>
+  </tr>
+  </tbody>
+</table>
+
+<table *ngIf="editMode" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Account Name</th>
+      <th scope="col">Debit</th>
+      <th scope="col">Credit</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  <ng-container *ngFor="let account of accounts">
+      <tr>
+          <th scope="row"> <input type="text" (change)="accountChanged(account)" [(ngModel)]="account.name"></th>
+          <td> <input (change)="accountChanged(account)" type="text" [(ngModel)]="account.debit"></td>
+          <td> <input (change)="accountChanged(account)" type="text" [(ngModel)]="account.credit"></td>
+      </tr>
+  </ng-container>
+
+   <tr>
+    <th scope="row">Total</th>
+    <td> {{ debitSum }} </td>
+    <td> {{ creditSum }} </td>
+  </tr>
+  </tbody>
+</table>
+
