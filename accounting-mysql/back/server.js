@@ -99,9 +99,6 @@ app.get('/addaccount3', (req,res) => {
     })
 })
 
-
-
-
 let ids = 3;
 
 const accounts = [

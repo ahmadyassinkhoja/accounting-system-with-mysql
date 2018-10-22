@@ -1,0 +1,18 @@
+{
+  "name": "accounting-mysql",
+  "version": "1.0.0",
+  "description": "Income Statement\r -------------------------\r - You can read record\r - You can add record\r - You can edit record\r - You can delete record",
+  "main": "index.js",
+  "scripts": {
+    "server":"cd back && npm start",
+    "client":"cd front && npm start",
+    "start":"concurrently --kill-others --names \" server client \" \"npm run server\" \"npm run client\" ",
+    "back": "cd back && npm install",
+    "front": "cd front && npm install",
+    "install": "concurrently --kill-others-on-fail --names \" front back main \" \"npm run front\" \"npm run back\" \"npm run main\" ",
+    "i": "concurrently --kill-others-on-fail --names \" front back \" \"npm run front\" \"npm run back\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
